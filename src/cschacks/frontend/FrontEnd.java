@@ -10,6 +10,8 @@ import java.awt.Polygon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import cschacks.frontend.Polygons;
+
 public class FrontEnd extends JPanel implements ActionListener {
 
     private JFrame fieldFrame;
@@ -26,21 +28,26 @@ public class FrontEnd extends JPanel implements ActionListener {
     public void showField () {
 		fieldFrame.setVisible(true);
 		//int[][] homeCoords = {{0, 170, 170, 85, 0}, {0, 0, 85, 200, 85}};
-		int[][] homeCoords = {{415, 585, 585, 500, 415}, {700, 700, 785, 900, 785}};
-		int[][] firstCoords = {{200, 350, 350, 200}, {0, 0, 150, 150}};
-		int[][] secondBase = {{}, {}};
-		int[][] thirdBase = {{}, {}};
+		// int[][] homeCoords = {{415, 585, 585, 500, 415}, {700, 700, 785, 900, 785}};
+		// int[][] firstCoords = {{200, 350, 350, 200}, {0, 0, 150, 150}};
+		// int[][] secondBase = {{}, {}};
+		// int[][] thirdBase = {{}, {}};
 		// int[] xCoords = {0, 170, 170, 85, 0};
 		// int[] yCoords = {0, 0, 85, 200, 85};
 		graphics = getGraphics();
-		Polygon homePlate = new Polygon(homeCoords[0], homeCoords[1], 5);
-		Polygon firstBase = new Polygon(firstCoords[0], firstCoords[1], 4);
+		// Polygon homePlate = new Polygon(homeCoords[0], homeCoords[1], 5);
+		Polygon homePlate = Polygons.createRegularPolygon(100, 100, 100, 4);
+		// Polygon rotated = Polygons.rotatePolygon(homePlate, Math.PI/4);
+		// Polygon firstBase = new Polygon(firstCoords[0], firstCoords[1], 4);
 		graphics.drawPolygon(homePlate);
 		graphics.setColor(Color.GRAY);
 		graphics.fillPolygon(homePlate);
-		graphics.drawPolygon(firstBase);
-		graphics.setColor(Color.WHITE);
-		graphics.fillPolygon(firstBase);
+		// graphics.drawPolygon(rotated);
+		// graphics.setColor(Color.GRAY);
+		// graphics.fillPolygon(rotated);
+		// graphics.drawPolygon(firstBase);
+		// graphics.setColor(Color.WHITE);
+		// graphics.fillPolygon(firstBase);
 	}
 	
 	public void hideField () {
