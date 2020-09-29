@@ -36,7 +36,7 @@ public class FrontEnd extends JPanel implements ActionListener {
 		// int[] yCoords = {0, 0, 85, 200, 85};
 		graphics = getGraphics();
 		// Polygon homePlate = new Polygon(homeCoords[0], homeCoords[1], 5);
-		Polygon homePlate = Polygons.createRegularPolygon(100, 100, 100, 4);
+		Polygon homePlate = Polygons.createRegularPolygon(100, 100, 100, 4, (Math.PI/4));
 		// Polygon rotated = Polygons.rotatePolygon(homePlate, Math.PI/4);
 		// Polygon firstBase = new Polygon(firstCoords[0], firstCoords[1], 4);
 		graphics.drawPolygon(homePlate);
