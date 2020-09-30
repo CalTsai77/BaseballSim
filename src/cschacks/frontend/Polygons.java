@@ -29,8 +29,8 @@ public class Polygons {
         int[] xValues = new int[sides];
         int[] yValues = new int[sides];
         for (int i = 0; i < sides; i++) {
-            xValues[i] = x + (int) (rad * Math.cos((angleDiff * i) + angle));
-            yValues[i] = y + (int) (rad * Math.sin((angleDiff * i) + angle));
+            xValues[i] = x + (int) (rad * (Math.cos((angleDiff * i) + angle)));
+            yValues[i] = y + (int) (rad * (Math.sin((angleDiff * i) + angle)));
             System.out.println("The x value for point " + i + " is " + xValues[i] + " and the y value is " + yValues[i]);
         }
     return new Polygon(xValues, yValues, sides);
