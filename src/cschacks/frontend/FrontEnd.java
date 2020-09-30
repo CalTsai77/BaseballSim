@@ -6,6 +6,7 @@ import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.Polygon;
+import java.awt.Rectangle;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -36,6 +37,9 @@ public class FrontEnd extends JPanel implements ActionListener {
 		graphics.drawLine(495, 792, 380, 690);
 		graphics.drawLine(620, 690, 860, 470);
 		graphics.drawLine(380, 690, 140, 470);
+		graphics.setColor(Color.YELLOW);
+		graphics.drawLine(140, 470, 140, 420);
+		graphics.drawLine(860, 470, 860, 420);
 		graphics.drawPolygon(homePlate);
 		graphics.setColor(Color.GRAY);
 		graphics.fillPolygon(homePlate);
