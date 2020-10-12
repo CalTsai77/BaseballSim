@@ -1,6 +1,9 @@
 package cschacks.frontend;
 
 import java.awt.Polygon;
+import cschacks.frontend.Line;
+import java.util.ArrayList;
+
 
 public class Polygons {
 
@@ -36,5 +39,18 @@ public class Polygons {
     return new Polygon(xValues, yValues, sides);
 
      }
+    
+    public static ArrayList<Line> createCurve(int startX, int startY, int vertexX, int vertexY, int finishX, int finishY, int lines) {
+    	ArrayList<Line> curve = new ArrayList<Line>();
+    	int a = (startY - vertexY)/(startX - vertexX);
+    	//y = a(x-vertexX) + vertexY
+    	int y1 = startY;
+    	for (int i = startX; i <= finishX; i+=((finishX-startX)/lines)) {
+    		int x2 = i+((finishX-startX)/lines);
+    		int y2 = a*(x2-vertexX) + vertexY;
+    		curve.add(new Line(i, y1, x2, y2));
+    	}
+    	return curve;
+    }
         
 }
