@@ -32,6 +32,7 @@ public class FrontEnd extends JPanel implements ActionListener {
 		Polygon firstBase = Polygons.createRegularPolygon(620, 680, 10, 4);
 		Polygon secondBase = Polygons.createRegularPolygon(500, 560, 10, 4);
 		Polygon thirdBase = Polygons.createRegularPolygon(380, 680, 10, 4);
+		graphics.drawOval(475, 665, 50, 50);
 		graphics.drawPolygon(homePlate);
 		graphics.setColor(Color.GRAY);
 		graphics.fillPolygon(homePlate);
@@ -52,7 +53,7 @@ public class FrontEnd extends JPanel implements ActionListener {
 		graphics.drawLine(860, 470, 860, 420);
 		ArrayList<Line> ofFence = Polygons.createCurve(140, 470, 500, 270, 860, 470, 100);
 		ArrayList<Line> ifBorder = Polygons.createCurve(350, 660, 500, 540, 650, 660, 100);
-		ArrayList<Line> bottomIfBorder = Polygons.createCurve(/*find variables */);
+		// ArrayList<Line> bottomIfBorder = Polygons.createCurve(/*find variables */);
 		graphics.setColor(Color.BLACK);
 		for (int i = 0; i < ofFence.size(); i++) {
 			Line l = ofFence.get(i);
@@ -62,10 +63,10 @@ public class FrontEnd extends JPanel implements ActionListener {
 			Line l = ifBorder.get(i);
 			graphics.drawLine(l.getX1(), l.getY1(), l.getX2(), l.getY2());
 		}
-		for(int i = 0; i < bottomIfBorder.size(); i++) {
-			Line l = bottomIfBorder.get(i);
-			graphics.drawLine(l.getX1(), l.getY1(), l.getX2(), l.getY2());
-		}
+		// for(int i = 0; i < bottomIfBorder.size(); i++) {
+		// 	Line l = bottomIfBorder.get(i);
+		// 	graphics.drawLine(l.getX1(), l.getY1(), l.getX2(), l.getY2());
+		// }
 	}
 	
 	public void hideField () {
