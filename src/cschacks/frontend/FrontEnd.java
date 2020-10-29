@@ -15,8 +15,8 @@ import javax.swing.JPanel;
 import cschacks.frontend.Polygons;
 import cschacks.backend.BackEnd;
 
-public class FrontEnd extends JPanel implements ActionListener {
-
+public class FrontEnd extends JPanel implements ActionListener
+{
     private JFrame fieldFrame;
     private JFrame menuFrame;
 
@@ -27,7 +27,7 @@ public class FrontEnd extends JPanel implements ActionListener {
     private boolean awayOption;
 
     public BackEnd backend;
-    
+
     public FrontEnd () {
 	fieldFrame = new JFrame("Baseball Field");
 	fieldFrame.getContentPane().add(this, BorderLayout.CENTER);
@@ -37,10 +37,10 @@ public class FrontEnd extends JPanel implements ActionListener {
 	menuFrame = new JFrame("Game Menu");
 	menuFrame.getContentPane().add(this, BorderLayout.CENTER);
 	menuFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	menuFrame.setSize(1000, 1000);	
+	menuFrame.setSize(1000, 1000);
 
 	backend = new BackEnd();
-        
+
     }
 
     public void showMenu () {
@@ -55,7 +55,7 @@ public class FrontEnd extends JPanel implements ActionListener {
 
 	quit.setBounds(100, 200, 100, 20);
 	quit.setVisible(true);
-	
+
 	start.addActionListener(new ActionListener() {
 
 		@Override
@@ -73,13 +73,13 @@ public class FrontEnd extends JPanel implements ActionListener {
 			hideMenu();
 			System.exit(0);
 		}
-		});	
+		});
 
-	menuFrame.add(start);	
+	menuFrame.add(start);
 	menuFrame.add(quit);
 
 	menuFrame.setVisible(true);
-				
+
     }
 
     public void hideMenu() {
@@ -87,8 +87,9 @@ public class FrontEnd extends JPanel implements ActionListener {
     }
 
     public void showField () {
-	Graphics graphics = fieldFrame.getGraphics();
-	fieldFrame.setVisible(true);
+    fieldFrame.setVisible(true);
+    Graphics graphics = fieldFrame.getGraphics();
+
 
 	Polygon homePlate = Polygons.createRegularPolygon(500, 800, 10, 5, (13*Math.PI)/10);
 	Polygon firstBase = Polygons.createRegularPolygon(620, 680, 10, 4);
@@ -96,7 +97,7 @@ public class FrontEnd extends JPanel implements ActionListener {
 	Polygon thirdBase = Polygons.createRegularPolygon(380, 680, 10, 4);
 
 	graphics.drawOval(475, 665, 50, 50);
-	
+
 	graphics.drawPolygon(homePlate);
 	graphics.setColor(Color.GRAY);
 	graphics.fillPolygon(homePlate);
@@ -135,12 +136,12 @@ public class FrontEnd extends JPanel implements ActionListener {
 		graphics.drawLine(l.getX1(), l.getY1(), l.getX2(), l.getY2());
 	}
 
-	// for(int i = 0; i < bottomIfBorder.size(); i++) {		
+	// for(int i = 0; i < bottomIfBorder.size(); i++) {
 	// 	Line l = bottomIfBorder.get(i);
 	// 	graphics.drawLine(l.getX1(), l.getY1(), l.getX2(), l.getY2());
 	// }
     }
-	
+
     public void hideField () {
 	fieldFrame.setVisible(false);
     }
@@ -164,11 +165,11 @@ public class FrontEnd extends JPanel implements ActionListener {
     public BackEnd generateBackEnd() {
 	return new BackEnd(getTiesOption(), getInningsOption(), awayOption(), homeOption());
     }
-	
+
     @Override
     public void actionPerformed(ActionEvent e) {
-        
+
 
     }
-    
+
 }

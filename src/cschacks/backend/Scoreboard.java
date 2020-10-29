@@ -1,6 +1,7 @@
 package cschacks.backend;
 
-public class Scoreboard {
+public class Scoreboard
+{
     private int inning;
     private boolean isBottom;
     private int balls;
@@ -16,7 +17,8 @@ public class Scoreboard {
     private boolean runnerOnSecond;
     private boolean runnerOnThird;
 
-    public Scoreboard () {
+    public Scoreboard ()
+    {
         inning = 9;
         isBottom = true;
         balls = 3;
@@ -33,54 +35,48 @@ public class Scoreboard {
         runnerOnThird = true;
     }
 
-    public void endOfInning() {
-        if (isBottom) {
+    public void endOfHalfInning()
+    {
+        outs = 0;
+        if (isBottom)
+        {
             inning++;
             isBottom = false;
-        } else if (!isBottom) {
-            isBottom = true;
         }
+        else
+          isBottom = true;
     }
-    
-    public void addBall() {
+
+    public void addBall()
+    {
         balls++;
-        if (balls == 4) {
-            //walk
-            resetBalls();
-            resetStrikes();
-        }
+        // Walk
+        if (balls == 4)
+            resetCount();
     }
 
-    public void addStrike() {
+    public void addStrike()
+    {
         strikes++;
-        if (strikes == 3) {
+        if (strikes == 3)
+        {
             addOut();
-            resetBalls();
-            resetStrikes();
+            resetCount();
         }
-
     }
 
     public void addOut() {
         outs++;
         if (outs == 3) {
-            resetOuts();
-            resetBalls();
-            resetStrikes();
-            endOfInning();
+            resetCount();
+            endOfHalfInning();
         }
     }
 
-    public void resetBalls() {
+    public void resetCount()
+    {
         balls = 0;
-    }
-
-    public void resetStrikes() {
         strikes = 0;
-    }
-
-    public void resetOuts() {
-        outs = 0;
     }
 
     public int getBalls() {
