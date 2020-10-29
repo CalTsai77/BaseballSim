@@ -1,29 +1,59 @@
 package cschacks.frontend;
 
 import java.awt.BorderLayout;
+import java.awt.Button;
+//import java.awt.CheckBox;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.awt.Polygon;
 
+import javax.swing.border.Border;
+import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JButton;
 
 import cschacks.frontend.Polygons;
 
-public class FrontEnd extends JPanel implements ActionListener {
+public class FrontEnd extends JPanel  {
 
-    private JFrame fieldFrame;
+	private JFrame fieldFrame;
+	private JFrame menuFrame;
     
     public FrontEnd () {
+		menuFrame = new JFrame("Main Menu");
+		menuFrame.getContentPane().add(this, BorderLayout.CENTER);
+		menuFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		menuFrame.setSize(500,500);
+
 		fieldFrame = new JFrame("Baseball Field");
 		fieldFrame.getContentPane().add(this, BorderLayout.CENTER);
 		fieldFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         fieldFrame.setSize(1000, 1000);
         
-    }
+	}
+	
+	public void showMenu () {
+		menuFrame.setVisible(true);
+		Graphics graphics = getGraphics();
+		graphics.setColor(Color.BLACK);
+
+		Button start = new Button("Start");
+		JButton quit = new JButton("Quit");
+
+		JPanel quitPanel = new JPanel();
+		quitPanel.setSize(new Dimension(50,50));
+		quit.addActionListener(new QuitGame());
+		quit.setSize(50,20);
+		Border border = BorderFactory.createMatteBorder(2, 2, 2, 2, Color.BLACK);
+		quit.setBorder(border);
+		quitPanel.add(quit);
+		menuFrame.add(quitPanel);
+	}
 
     public void showField () {
 		fieldFrame.setVisible(true);
@@ -72,11 +102,19 @@ public class FrontEnd extends JPanel implements ActionListener {
 	public void hideField () {
 		fieldFrame.setVisible(false);
 	}
-	
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        
 
-    }
+	static class StartGame implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+
+		}
+	}
+	
+	static class QuitGame implements ActionListener {
+		@Override
+    	public void actionPerformed(ActionEvent e) {
+        	System.exit(0);
+    	}
+	}
     
 }
