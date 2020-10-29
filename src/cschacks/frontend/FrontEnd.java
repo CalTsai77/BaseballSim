@@ -67,45 +67,6 @@ public class FrontEnd extends JPanel  {
 		menuFrame.add(quitPanel);
 	}
 
-    public void showMenu () {
-	Button tutorial = new Button();
-	Button ties = new Button();
-	Button innings = new Button();
-	Button start = new Button("Start Game");
-	Button quit = new Button("Quit Game");
-
-	start.setBounds(100, 100, 100, 50);
-	start.setVisible(true);
-
-	quit.setBounds(100, 200, 100, 20);
-	quit.setVisible(true);
-
-	start.addActionListener(new ActionListener() {
-
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			if (!tutorialOption)
-				backend = generateBackEnd();
-			hideMenu();
-		}
-		});
-
-	quit.addActionListener(new ActionListener() {
-
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			hideMenu();
-			System.exit(0);
-		}
-		});
-
-	menuFrame.add(start);
-	menuFrame.add(quit);
-
-	menuFrame.setVisible(true);
-
-    }
-
     public void hideMenu() {
 	menuFrame.setVisible(false);
     }
@@ -188,12 +149,8 @@ public class FrontEnd extends JPanel  {
 
     public BackEnd generateBackEnd() {
 	return new BackEnd(getTiesOption(), getInningsOption(), awayOption(), homeOption());
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-
-
+	}
+	
 	static class StartGame implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
