@@ -40,8 +40,7 @@ public class Polygons {
 
      }
 
-    public static ArrayList<Line> createCurve(int startX, int startY, int vertexX, int vertexY, int finishX, int finishY, int lines) 
-    {
+    public static ArrayList<Line> createCurve(int startX, int startY, int vertexX, int vertexY, int finishX, int finishY, int lines) {
     	ArrayList<Line> curve = new ArrayList<Line>();
     	double a = ((double) startY - (double) vertexY)/Math.pow(((double) startX - (double) vertexX), 2);
     	//y = a(x-vertexX)^2 + vertexY
