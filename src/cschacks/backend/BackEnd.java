@@ -8,13 +8,16 @@ public class BackEnd
     private boolean userIsAway;
     private boolean userIsHome;
 
+    private int gameStatus;
+
     public BackEnd()
     {
         scoreboard = new Scoreboard();
         areTies = true;
         numInnings = 9;
 	      userIsHome = true;
-	      userIsHome = false;
+        userIsHome = false;
+        gameStatus = 0;
     }
 
     public BackEnd(boolean areTies, int numInnings, boolean userIsAway, boolean userIsHome)
@@ -22,7 +25,8 @@ public class BackEnd
 	     this.areTies = areTies;
 	     this.numInnings = numInnings;
 	     this.userIsAway = userIsAway;
-	     this.userIsHome = userIsHome;
+       this.userIsHome = userIsHome;
+       gameStatus = 0;
     }
 
     public Scoreboard getScoreboard()
@@ -90,5 +94,13 @@ public class BackEnd
     public void removeUserFromAway()
     {
 	     userIsAway = false;
+    }
+
+    public int getStatus() {
+        return gameStatus;
+    }
+
+    public void modifyStatus(int s) {
+      gameStatus = s;
     }
 }
