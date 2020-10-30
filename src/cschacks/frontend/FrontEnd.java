@@ -21,7 +21,7 @@ import javax.swing.JButton;
 import cschacks.frontend.Polygons;
 import cschacks.backend.BackEnd;
 
-public class FrontEnd extends JPanel  {
+public class FrontEnd extends JPanel implements ActionListener {
 
     private JFrame fieldFrame;
     private JFrame menuFrame;
@@ -30,7 +30,7 @@ public class FrontEnd extends JPanel  {
     private boolean tiesOption;
     private int inningsOption;
     private boolean homeOption;
-    private boolean awayOption;
+	private boolean awayOption;
 
     public BackEnd backend;
 
@@ -43,7 +43,7 @@ public class FrontEnd extends JPanel  {
 	menuFrame = new JFrame("Game Menu");
 	menuFrame.getContentPane().add(this, BorderLayout.CENTER);
 	menuFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	menuFrame.setSize(1000, 1000);
+	menuFrame.setSize(500, 500);
 
 	backend = new BackEnd();
 
@@ -54,21 +54,29 @@ public class FrontEnd extends JPanel  {
 		Graphics graphics = getGraphics();
 		graphics.setColor(Color.BLACK);
 
-		Button start = new Button("Start");
+		JButton start = new JButton("Start");
 		JButton quit = new JButton("Quit");
+
+		JPanel startPanel = new JPanel();
+		startPanel.setSize(new Dimension(50,50));
+		start.addActionListener(this);
+		start.setSize(50,20);
+		Border border = BorderFactory.createMatteBorder(2, 2, 2, 2, Color.BLACK);
+		start.setBorder(border);
+		startPanel.add(start);
+		menuFrame.add(startPanel);
 
 		JPanel quitPanel = new JPanel();
 		quitPanel.setSize(new Dimension(50,50));
 		quit.addActionListener(new QuitGame());
 		quit.setSize(50,20);
-		Border border = BorderFactory.createMatteBorder(2, 2, 2, 2, Color.BLACK);
 		quit.setBorder(border);
 		quitPanel.add(quit);
 		menuFrame.add(quitPanel);
 	}
 
     public void hideMenu() {
-	menuFrame.setVisible(false);
+		menuFrame.setVisible(false);
     }
 
     public void showField () {
@@ -154,7 +162,7 @@ public class FrontEnd extends JPanel  {
 	static class StartGame implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
-
+			 
 		}
 	}
 
@@ -163,6 +171,11 @@ public class FrontEnd extends JPanel  {
     	public void actionPerformed(ActionEvent e) {
         	System.exit(0);
     	}
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		hideMenu();
 	}
 
 }
