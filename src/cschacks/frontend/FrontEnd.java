@@ -18,7 +18,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JButton;
 
-import cschacks.frontend.Polygons;
+import Graphics.Polygons;
+import Graphics.Line;
+
 import cschacks.backend.BackEnd;
 
 public class FrontEnd extends JPanel implements ActionListener {
@@ -149,6 +151,8 @@ public class FrontEnd extends JPanel implements ActionListener {
 	
 	public void showTutorialPanel() {
 		tutorialPanel.setVisible(true);
+		Graphics graphics = tutorialPanel.getGraphics();
+		graphics.drawString("Welcome to our baseball game!", 200, 200);
 	}
 
 	public void hideTutorialPanel() {
