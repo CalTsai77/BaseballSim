@@ -1,2 +1,2 @@
 # BaseballSim
-Baseball Simulation
+Baseball Game Simulation in Java
